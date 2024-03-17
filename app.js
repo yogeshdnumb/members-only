@@ -68,10 +68,11 @@ app.use(express.static(path.join(__dirname, "public")));
 
 //set variables in views
 app.use(function (req, res, next) {
-  res.locals.currentUser = req.user?.username;
-  res.locals.isLogged = req?.isAuthenticated();
-  res.locals.isAdmin = req?.user?.isAdmin;
-  res.locals.isMember = req?.user?.isMember;
+  res.locals.currentUser =
+    req.user == undefined ? undefined : req.user.username;
+  res.locals.isLogged = req.isAuthenticated();
+  res.locals.isAdmin = req.user == undefined ? undefined : req.user.isAdmin;
+  res.locals.isMember = req.user == undefined ? undefined : req.user.isMember;
   next();
 });
 
