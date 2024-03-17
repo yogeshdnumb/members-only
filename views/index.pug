@@ -1,0 +1,14 @@
+extends layout
+block content
+
+  .log_info
+    if isLogged 
+      p= "Logged in as "+currentUser
+    else 
+      p= "Not Logged"
+ 
+  include includes/posts
+
+
+
+    

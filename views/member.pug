@@ -1,0 +1,14 @@
+extends layout
+block content
+  h2 Become member
+  form(method='POST')
+    div.row
+      label(for="code") Enter code 
+      input#code(type="password" name='code' placeholder="code" value=code==undefined?'':code)
+    button Submit
+
+
+    if errors 
+      ul
+        each err in errors 
+          li= err.msg

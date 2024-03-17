@@ -1,0 +1,16 @@
+extends layout
+block content
+  form(method='POST')
+    .row 
+      label(for="title") title 
+      input#title(type="text" ploceholder='title' name='title' value=title==undefined?'':title)  
+    .row 
+      label(for="content") content 
+      textarea#content(type="text" ploceholder='content' name='content' value=content==undefined?'':content)  
+    button Submit
+    
+  
+    if errors 
+      ul
+        each err in errors 
+          li= err.msg

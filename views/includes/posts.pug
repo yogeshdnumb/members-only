@@ -1,0 +1,17 @@
+main  
+if posts
+  each post in posts 
+    .post
+      h2.post_title= post.title
+      .post_header 
+        if isLogged
+          p.post_author= post.author.username
+          p.post_date= post.date_formatted
+          if isAdmin
+            form(action="/post/delete/"+post.id, method="post") 
+              button#delete_btn
+                img(src="/images/trash.svg", alt="delete")
+      .post_content 
+        p= post.content
+else 
+  p No Posts

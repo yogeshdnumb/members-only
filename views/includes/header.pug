@@ -1,0 +1,17 @@
+h1 Members Only
+ul.flex-r
+  li 
+    a(href='/') Home
+  if isLogged
+    li 
+      a(href='/logout') Logout 
+  else
+    li 
+      a(href='/register') Register 
+    li 
+      a(href='/login') Login 
+  unless isMember
+    li
+      a(href='/member') Become Member
+  li  
+    a(href="/post/create") Create Post 

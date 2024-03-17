@@ -1,0 +1,11 @@
+extends layout
+block content
+  h2 Login
+  form.flex-c(method='POST')
+      .row
+        label(for="username") username
+        input#username(type="text" placeholder='username' name='username' value=username==undefined?'':username)
+      .row
+        label(for="password") password
+        input#password(type="text" placeholder='password' name='password' value=password==undefined?'':password)
+      button Login
