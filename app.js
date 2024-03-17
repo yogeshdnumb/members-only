@@ -18,7 +18,7 @@ const postRouter = require("./routes/postRouter");
 
 const app = express();
 
-console.log(process.env.MONGODB_URL_PROD || process.env.MONGODB_URL_DEV);
+console.log(process.env.MONGODB_URL_PROD, process.env.MONGODB_URL_DEV);
 
 // Set up mongoose connection
 mongoose.set("strictQuery", false);
