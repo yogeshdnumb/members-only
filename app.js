@@ -11,7 +11,7 @@ const compression = require("compression");
 const helmet = require("helmet");
 const RateLimit = require("express-rate-limit");
 
-require("dotenv").config();
+// require("dotenv").config();
 
 const indexRouter = require("./routes/indexRouter");
 const postRouter = require("./routes/postRouter");
