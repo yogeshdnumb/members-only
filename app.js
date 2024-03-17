@@ -18,12 +18,11 @@ const postRouter = require("./routes/postRouter");
 
 const app = express();
 
-const dev_db_url =
-  "mongodb+srv://admin:mongo69@cluster0.buknilm.mongodb.net/dev?retryWrites=true&w=majority&appName=Cluster0";
+console.log(process.env.MONGODB_URL_PROD || process.env.MONGODB_URL_DEV);
 
 // Set up mongoose connection
 mongoose.set("strictQuery", false);
-const mongoDB = process.env.MONGODB_URL_PROD || dev_db_url;
+const mongoDB = process.env.MONGODB_URL_PROD || process.env.MONGODB_URL_DEV;
 main().catch((err) => console.log(err));
 async function main() {
   await mongoose.connect(mongoDB);
@@ -38,7 +37,7 @@ app.use(
       maxAge: 1000 * 60 * 60 * 24, // Equals 1 day (1 day * 24 hr/1 day * 60 min/1 hr * 60 sec/1 min * 1000 ms / 1 sec)
     },
     store: MongoStore.create({
-      mongoUrl: process.env.MONGODB_URL_PROD || dev_db_url,
+      mongoUrl: process.env.MONGODB_URL_PROD || process.env.MONGODB_URL_DEV,
     }),
   })
 );
